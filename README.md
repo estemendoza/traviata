@@ -8,6 +8,9 @@ The ExtJS extension is included by default to be able to handle ExtJS applicatio
 
 This is a quick example of how to use Traviata with the included ExtJS extension:
 
+	from traviata import Traviata
+    from selenium import webdriver
+
 	#Open browser with webdriver
 	driver = webdriver.Firefox()
 	driver.get("<<point to a page with an ExtJS application>>")
