@@ -77,18 +77,6 @@ class traviata_tests(unittest.TestCase):
             print root_node.getChildAt(i).data.name, root_node.getChildAt(i).data.description 
 
         driver.close()
-        
-
-    '''def test_phantonjs(self):
-        driver = webdriver.Remote("http://localhost:8910", webdriver.DesiredCapabilities.PHANTOMJS)
-        current_dir = os.getcwd()
-        driver.get("file://"+current_dir+"/test_page/index.html")
-
-        from traviata import ExtJsTraviata
-        a = ExtJsTraviata("t",driver)
-        js = a._get_JSON_parser()
-        driver.execute_script("var s=document.createElement('script');s.setAttribute('type', 'text/javascript');s.innerHTML='"+js+"';document.head.appendChild(s);")
-        print driver.execute_script('return JSON.prune(Ext.getCmp("modules")).activeUI')'''
 
 if __name__ == '__main__':
     unittest.main()
