@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test for Traviata</title>
+    <link rel="stylesheet" type="text/css" href="extjs/packages/ext-theme-classic/build/resources/ext-theme-classic-all-debug.css">
+
+    <script src="extjs/ext-all.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    Ext.require('Ext.tree.Panel')
+    Ext.onReady(function(){
+        Ext.create('Ext.tree.Panel', {
+            renderTo: Ext.getElementById("tree"),
+            title: 'Simple Tree',
+            width: 300,
+            height: 250,
+            id: 'modules',
+            root: {
+                text: 'Root',
+                expanded: true,
+                children: [
+                    {
+                        text: 'Child 1',
+                        leaf: true
+                    },
+                    {
+                        text: 'Child 2',
+                        leaf: true
+                    },
+                    {
+                        text: 'Child 3',
+                        expanded: true,
+                        children: [
+                            {
+                                text: 'Grandchild',
+                                leaf: true
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+        Ext.create('Ext.tree.Panel', {
+            renderTo: 'treegrid',
+            title: 'TreeGrid',
+            width: 300,
+            height: 150,
+            id: 'tree_grid_cmp',
+            fields: ['name', 'description'],
+            columns: [{
+                xtype: 'treecolumn',
+                text: 'Name',
+                dataIndex: 'name',
+                width: 150,
+                sortable: true
+            }, {
+                text: 'Description',
+                dataIndex: 'description',
+                flex: 1,
+                sortable: true
+            }],
+            root: {
+                name: 'Root',
+                description: 'Root description',
+                expanded: true,
+                children: [{
+                    name: 'Child 1',
+                    description: 'Description 1',
+                    leaf: true
+                }, {
+                    name: 'Child 2',
+                    description: 'Description 2',
+                    leaf: true
+                }]
+            }
+        });
+     });
+
+    
+    </script>
+</head>
+<body>
+    <div id="tree"></div>
+    <div id="treegrid"><div>
+</body>
+</html>
