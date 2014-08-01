@@ -1,4 +1,4 @@
-# Traviata - JavaScript automation with Python and Selenium
+# Traviata - Javascript automation with Python and Selenium
 
 Traviata is an adapter to handle JavaScript using Selenium. It's made with Python and the main idea is to be able to communicate Python with Javascript using python syntax and to facilitate the automation of JavaScript applications.
 
