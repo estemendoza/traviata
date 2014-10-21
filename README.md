@@ -8,25 +8,27 @@ The ExtJS extension is included by default to be able to handle ExtJS applicatio
 
 This is a quick example of how to use Traviata with the included ExtJS extension:
 
-	from traviata import Traviata
-    from selenium import webdriver
+```python
+from traviata import Traviata
+from selenium import webdriver
 
-	#Open browser with webdriver
-	driver = webdriver.Firefox()
-	driver.get("<<point to a page with an ExtJS application>>")
+#Open browser with webdriver
+driver = webdriver.Firefox()
+driver.get("<<point to a page with an ExtJS application>>")
 	
-	#Create a new Traviata object
-	t = Traviata.get_instance("ExtJs", driver)
+#Create a new Traviata object
+t = Traviata.get_instance("ExtJs", driver)
 	
-	#Get a component by ID
-	cmp = t.getCmp("modules")
+#Get a component by ID
+cmp = t.getCmp("modules")
 	
-	#Execute any method defined in ExtJS components
-	size = cmp.getSize()
+#Execute any method defined in ExtJS components
+size = cmp.getSize()
 	
-	#Retrieve results as python objects
-	print size.width
-	print size.height
+#Retrieve results as python objects
+print size.width
+print size.height
+```
 	
 ## How does it work?
 
@@ -44,32 +46,40 @@ Well, a lot of stuff, but sometimes you have to use another methods to achieve w
 
 Here are some common ExtJS examples following the example above:
 
+
 ### Getting the properties of an object
-	from pprint import pprint
+
+```python
+from pprint import pprint
 	
-	#Get the desired component
-	cmp = t.getCmp("tree_grid_cmp")
+#Get the desired component
+cmp = t.getCmp("tree_grid_cmp")
 	
-	#Will show all the properties of the object
-	pprint(cmp.__dict__)
+#Will show all the properties of the object
+pprint(cmp.__dict__)
+```
 
 ### Getting items of a tree grid object
 
-    #Assume that the tree has two columns named "Name" and "Description"
-    cmp = t.getCmp("tree_grid_cmp")
-    root_node = cmp.getRootNode()
-    total_childs = len(root_node.childNodes)
-    for i in range(0, total_childs):
-            print root_node.getChildAt(i).data.name
-            print root_node.getChildAt(i).data.description
-            
+```python
+#Assume that the tree has two columns named "Name" and "Description"
+cmp = t.getCmp("tree_grid_cmp")
+root_node = cmp.getRootNode()
+total_childs = len(root_node.childNodes)
+for i in range(0, total_childs):
+    print root_node.getChildAt(i).data.name
+    print root_node.getChildAt(i).data.description
+```
+
 ### Getting a list of the columns of a tree grid object
 
-    cmp = t.getCmp("tree_grid_cmp")
-    columns = []
-    for a in cmp.columns:
-        columns.append(a.text)
-        
+```python
+cmp = t.getCmp("tree_grid_cmp")
+columns = []
+for a in cmp.columns:
+    columns.append(a.text)
+```
+
 This is just to give you an idea of what can you do with Traviata.
 
 The goal is to create a separate page with examples of how to automate differents components, so I will be adding more examples on the future
